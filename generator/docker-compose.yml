@@ -1,0 +1,23 @@
+version: '3'
+services:
+  tpcds:
+    build: .
+    container_name: "tpcds"
+    stdin_open: true
+    tty: true
+    entrypoint: bash
+    env_file: .env
+
+  # example postgreSQL database
+  psql:
+    container_name: psql
+    image: postgres
+    ports:
+      - 30000:5432
+    volumes:
+      - ./vol:/var/lib/postgresql/data
+    env_file: .env
+
+
+
+

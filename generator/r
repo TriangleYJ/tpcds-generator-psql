@@ -1,0 +1,2 @@
+docker compose down; docker compose build > /dev/null
+docker compose up -d && docker exec -w /root/utils -it tpcds bash

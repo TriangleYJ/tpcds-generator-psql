@@ -1,0 +1,1 @@
+psql "$DBCRED" < /root/tpcds-kit/tools/query_0.sql

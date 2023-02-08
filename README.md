@@ -8,7 +8,7 @@ It consists of two directory: generator and measure
 
 ### How to load TPC-DS set into my DB?
 1. set `.env` (refer `.env.example`)
-2. run `./r`
+2. run `./rst.sh` (for volume resetting) and run `./r`
 3. (Optional) run `./gen.sh <scale>` in container bash
 4. run `./dbgen-schm.sh` in container bash
 5. run `./load-db.sh` in container bash

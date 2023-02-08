@@ -6,6 +6,8 @@ services:
     stdin_open: true
     tty: true
     entrypoint: bash
+    volumes:
+      - tpcds-vol:/root/tpcds-kit
     env_file: .env
 
   # example postgreSQL database
@@ -15,9 +17,20 @@ services:
     ports:
       - 30000:5432
     volumes:
-      - ./vol:/var/lib/postgresql/data
+      - psql-vol:/var/lib/postgresql/data
     env_file: .env
 
-
-
-
+volumes:
+  tpcds-vol:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: $HOME/tpcds-vol/tpcds
+  
+  psql-vol:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: $HOME/tpcds-vol/psql
